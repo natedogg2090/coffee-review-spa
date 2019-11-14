@@ -10,13 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_14_185848) do
+ActiveRecord::Schema.define(version: 2019_11_14_190316) do
 
   create_table "roasters", force: :cascade do |t|
     t.string "name"
     t.string "geo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "roasts", force: :cascade do |t|
+    t.string "name"
+    t.string "origin"
+    t.date "roasted_date"
+    t.string "preparation_method"
+    t.text "tasting_notes"
+    t.integer "price"
+    t.integer "roaster_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["roaster_id"], name: "index_roasts_on_roaster_id"
   end
 
 end
