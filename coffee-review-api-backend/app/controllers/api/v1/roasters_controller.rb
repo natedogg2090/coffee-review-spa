@@ -1,4 +1,4 @@
-class RoastersController < ApplicationController
+class Api::V1::RoastersController < ApplicationController
 
   def index
     @roasters = Roaster.all
