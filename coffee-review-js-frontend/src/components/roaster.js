@@ -2,7 +2,7 @@ class Roaster {
 	constructor() {
 		this.roasters = []
 		this.adapter = new RoastersAdapter()
-		this.bindEventListeners()
+		// this.bindEventListeners()
 		this.fetchAndLoadRoasters()
 	}
 

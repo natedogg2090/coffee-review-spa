@@ -1,5 +1,5 @@
 class App {
 	constructor() {
-		this.roasters = new Roasters()
+		this.roasters = new Roaster()
 	}
 }
