@@ -30,15 +30,14 @@ class Roasters {
 
 
 	destroyRoaster(e) {
-
 		const id = e.target.attributes[1].nodeValue
 
 		this.adapter.destroyRoaster(id).then(roaster => this.removeRoaster(roaster))
-
 	}
 
 	removeRoaster(roaster) {
 		const roasterEl = document.querySelector(`[data-roaster-id="${roaster.roasterId}"]`)
+		
 		roasterEl.parentNode.remove()
 	}
 
