@@ -8,6 +8,7 @@ class Roasters {
 
 	initBindEventListeners() {
 		this.roasterContainer = document.getElementById('roasters-container')
+		this.roasterContainer.addEventListener('click', this.destroyRoaster.bind(this))
 		this.roasterName = document.getElementById('new-roaster-name')
 		this.roasterGeo = document.getElementById('new-roaster-geo')
 		this.roasterForm = document.getElementById('new-roaster-form')
@@ -27,6 +28,20 @@ class Roasters {
 		})
 	}
 
+
+	destroyRoaster(e) {
+
+		const id = e.target.attributes[1].nodeValue
+
+		this.adapter.destroyRoaster(id).then(roaster => this.removeRoaster(roaster))
+
+	}
+
+	removeRoaster(roaster) {
+		const roasterEl = document.querySelector(`[data-roaster-id="${roaster.roasterId}"]`)
+		roasterEl.parentNode.remove()
+	}
+
 	fetchAndLoadRoasters() {
 		this.adapter
 		.getRoasters()
@@ -41,6 +56,6 @@ class Roasters {
 
 	renderRoasters() {
 		this.roasterContainer.innerHTML = this.roasters.map(roaster => roaster.renderLi()).join('')
-		
+
 	}
 }

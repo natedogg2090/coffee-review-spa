@@ -21,6 +21,15 @@ class Api::V1::RoastersController < ApplicationController
 
   end
 
+  def destroy
+    @roaster = Roaster.find(params[:id])
+
+    @roaster.delete
+
+    render json: {roasterId: @roaster.id}
+
+  end
+
   private
 
   def roaster_params

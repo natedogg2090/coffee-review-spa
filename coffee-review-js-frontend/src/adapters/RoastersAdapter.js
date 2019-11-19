@@ -21,4 +21,18 @@ class RoastersAdapter {
 			body: JSON.stringify({ roaster })
 		}).then(res => res.json())
 	}
+
+	destroyRoaster(id) {
+		const roasterId = {
+			id: id
+		}
+
+		return fetch(this.baseUrl + `/${roasterId.id}`, {
+			method: "DELETE",
+			headers: {
+				'content-type': 'application/json'
+			},
+			body: JSON.stringify({ roasterId })
+		}).then(res => res.json())
+	}
 }
