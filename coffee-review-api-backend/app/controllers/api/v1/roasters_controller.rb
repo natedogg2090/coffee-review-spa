@@ -18,7 +18,13 @@ class Api::V1::RoastersController < ApplicationController
     if @roaster.save
       render json: @roaster, status: 200
     end
+  end
 
+  def update
+    @roaster = Roaster.find(params[:id])
+    @roaster.update(roaster_params)
+
+    render json: @roaster, status: 200
   end
 
   def destroy
@@ -27,7 +33,6 @@ class Api::V1::RoastersController < ApplicationController
     @roaster.delete
 
     render json: {roasterId: @roaster.id}
-
   end
 
   private
