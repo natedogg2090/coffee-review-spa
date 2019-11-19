@@ -12,4 +12,19 @@ class Api::V1::RoastersController < ApplicationController
     render json: @roaster, status: 200
   end
 
+  def create
+    @roaster = Roaster.new(roaster_params)
+
+    if @roaster.save
+      render json: @roaster, status: 200
+    end
+
+  end
+
+  private
+
+  def roaster_params
+    params.require(:roaster).permit(:name, :geo)
+  end
+
 end
