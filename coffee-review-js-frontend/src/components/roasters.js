@@ -8,7 +8,6 @@ class Roasters {
 
 	initBindEventListeners() {
 		this.roasterContainer = document.getElementById('roasters-container')
-		this.roasterContainer.addEventListener('click', this.destroyRoaster.bind(this))
 		this.roasterName = document.getElementById('new-roaster-name')
 		this.roasterGeo = document.getElementById('new-roaster-geo')
 		this.roasterForm = document.getElementById('new-roaster-form')
@@ -55,6 +54,15 @@ class Roasters {
 
 	renderRoasters() {
 		this.roasterContainer.innerHTML = this.roasters.map(roaster => roaster.renderLi()).join('')
+
+		this.applyEventListeners();
+
+	}
+
+	applyEventListeners() {
+		const deleteRoasterBtns = document.querySelectorAll(`[data-roaster-id]`) // returns an nodeList of all buttons
+
+		deleteRoasterBtns.forEach(btn => btn.addEventListener('click', this.destroyRoaster.bind(this)))
 
 	}
 }
