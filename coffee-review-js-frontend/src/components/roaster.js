@@ -6,7 +6,9 @@ class Roaster {
 	}
 
 	renderLi() {
-		return `<li>${this.name}<button class="delete" data-roaster-id=${this.id}>X</button></li>`
+		return `<li>${this.name}<button class="delete" data-roaster-id=${this.id}>Delete</button></li>`
 	}
 
 }
+
+// <button class="edit" data-roaster-id=${this.id}>Edit</button>

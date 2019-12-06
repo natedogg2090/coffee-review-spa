@@ -21,6 +21,7 @@ class Api::V1::RoastersController < ApplicationController
   end
 
   def update
+    binding.pry
     @roaster = Roaster.find(params[:id])
     @roaster.update(roaster_params)
 

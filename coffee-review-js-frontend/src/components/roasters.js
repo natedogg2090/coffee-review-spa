@@ -27,6 +27,29 @@ class Roasters {
 		})
 	}
 
+	// editRoaster(e) {
+	// 	const id = e.target.attributes[1].nodeValue
+
+	// 	let roasterStr = e.target.parentElement.textContent
+
+	// 	let roasterVal = roasterStr.slice(0, `${roasterStr.indexOf("D")}`)
+
+		
+
+
+	// 	this.roasters.find(el => {
+	// 		let changeBtn = document.querySelector('[name="create-roaster"]')
+
+	// 		if (el.name === roasterVal) {
+	// 			this.roasterName.value = el.name,
+	// 			this.roasterGeo.value = el.geo,
+	// 			changeBtn.value = "Update Roaster",
+	// 			changeBtn.name = "update-roaster",
+	// 			changeBtn.addEventListener('submit', this.adapter.editRoaster(id, el.name, el.geo))
+	// 		}
+	// 	})
+
+	// }
 
 	destroyRoaster(e) {
 		const id = e.target.attributes[1].nodeValue
@@ -60,9 +83,11 @@ class Roasters {
 	}
 
 	applyEventListeners() {
-		const deleteRoasterBtns = document.querySelectorAll(`[data-roaster-id]`) // returns an nodeList of all buttons
+		const deleteRoasterBtns = document.querySelectorAll(`button.delete`) // returns an nodeList of all buttons
+		const editRoasterBtns = document.querySelectorAll(`button.edit`)
 
 		deleteRoasterBtns.forEach(btn => btn.addEventListener('click', this.destroyRoaster.bind(this)))
+		// editRoasterBtns.forEach(btn => btn.addEventListener('click', this.editRoaster.bind(this)))
 
 	}
 }

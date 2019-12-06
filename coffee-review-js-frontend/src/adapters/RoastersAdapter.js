@@ -35,4 +35,20 @@ class RoastersAdapter {
 			body: JSON.stringify({ roasterId })
 		}).then(res => res.json())
 	}
+
+	// editRoaster(id, name, geo) {
+	// 	const roaster = {
+	// 		id: id,
+	// 		name: name,
+	// 		geo: geo
+	// 	}
+
+	// 	return fetch(this.baseUrl + `/${roaster.id}`, {
+	// 		method: 'PATCH',
+	// 		headers: {
+	// 			'content-type': 'application/json',
+	// 		},
+	// 		body: JSON.stringify({ roaster })	
+	// 	}).then(res => res.json())
+	// }
 }
